@@ -276,7 +276,7 @@ class BaseWizard(object):
             _('Enter your wallet derivation here.  If you are not sure what this is, '
               'leave this field unchanged.\n'),
             _("The default value of {} is the default derivation for {} wallets.  "
-              "This matches BTC wallet addresses and most other BSV wallet software.")
+              "This matches BTC wallet addresses and most other RAD wallet software.")
             .format(default_derivation, self.wallet_type),
             _("To match BCH wallet addresses use m/44'/145'/0'"),
         ])

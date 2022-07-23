@@ -113,7 +113,7 @@ class ExchangeBase(object):
 class BitPay(ExchangeBase):
 
     def get_rates(self, ccy):
-        json = self.get_json('bitpay.com', '/api/rates/BSV')
+        json = self.get_json('bitpay.com', '/api/rates/RAD')
         return dict([(r['code'], Decimal(r['rate'])) for r in json])
 
 
@@ -147,20 +147,20 @@ class Coinbase(ExchangeBase):
 
     def get_rates(self, ccy):
         json = self.get_json('api.coinbase.com',
-                             '/v2/exchange-rates?currency=BSV')
+                             '/v2/exchange-rates?currency=RAD')
         return {ccy: Decimal(rate) for (ccy, rate) in json["data"]["rates"].items()}
 
 
 class CoinFloor(ExchangeBase):
     # CoinFloor API only supports GBP on public API
     def get_rates(self, ccy):
-        json = self.get_json('webapi.coinfloor.co.uk:8090/bist/BSV/GBP', '/ticker/')
+        json = self.get_json('webapi.coinfloor.co.uk:8090/bist/RAD/GBP', '/ticker/')
         return {'GBP': Decimal(json['last'])}
 
 
 class CoinPaprika(ExchangeBase):
     def get_rates(self, ccy):
-        json = self.get_json('api.coinpaprika.com', '/v1/tickers/bsv-bitcoin-sv')
+        json = self.get_json('api.coinpaprika.com', '/v1/tickers/rad-radiant')
         return {'USD': Decimal(json['quotes']['USD']['price'])}
 
     def history_ccys(self):
@@ -172,7 +172,7 @@ class CoinPaprika(ExchangeBase):
         start_date = end_date - datetime.timedelta(days=limit-1)
         history = self.get_json(
             'api.coinpaprika.com',
-            "/v1/tickers/bsv-bitcoin-sv/historical?start={}&quote=USD&limit={}&interval=24h"
+            "/v1/tickers/rad-radiant/historical?start={}&quote=USD&limit={}&interval=24h"
             .format(start_date.strftime("%Y-%m-%d"), limit))
         return dict([(datetime.datetime.strptime(
             h['timestamp'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d'), h['price'])
@@ -181,7 +181,7 @@ class CoinPaprika(ExchangeBase):
 
 class CoinCap(ExchangeBase):
     def get_rates(self, ccy):
-        json = self.get_json('api.coincap.io', '/v2/assets/bitcoin-sv')
+        json = self.get_json('api.coincap.io', '/v2/assets/radiant')
         return {'USD': Decimal(json['data']['priceUsd'])}
 
     def history_ccys(self):
@@ -191,7 +191,7 @@ class CoinCap(ExchangeBase):
         # Currently 2000 days is the maximum in 1 API call which needs to be fixed
         # sometime before the year 2023...
         history = self.get_json('api.coincap.io',
-                               "/v2/assets/bitcoin-sv/history?interval=d1&limit=2000")
+                               "/v2/assets/radiant/history?interval=d1&limit=2000")
         return dict([(datetime.datetime.utcfromtimestamp(h['time']/1000).strftime('%Y-%m-%d'),
                         h['priceUsd'])
                      for h in history['data']])
@@ -201,7 +201,7 @@ class CoinGecko(ExchangeBase):
 
     def get_rates(self, ccy):
         json = self.get_json('api.coingecko.com',
-                             '/api/v3/coins/bitcoin-cash-sv?localization=False&sparkline=false')
+                             '/api/v3/coins/radiant?localization=False&sparkline=false')
         prices = json["market_data"]["current_price"]
         return dict([(a[0].upper(),Decimal(a[1])) for a in prices.items()])
 
@@ -216,7 +216,7 @@ class CoinGecko(ExchangeBase):
     def request_history(self, ccy):
         history = self.get_json(
             'api.coingecko.com',
-            '/api/v3/coins/bitcoin-cash/market_chart?vs_currency=%s&days=max' % ccy)
+            '/api/v3/coins/radiant/market_chart?vs_currency=%s&days=max' % ccy)
         return dict([(datetime.datetime.utcfromtimestamp(h[0]/1000).strftime('%Y-%m-%d'), h[1])
                      for h in history['prices']])
 

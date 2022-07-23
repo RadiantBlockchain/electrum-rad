@@ -204,7 +204,7 @@ class CoinSplittingTab(QWidget):
                 our_script = self.receiving_address.to_script_bytes()
                 for tx_output in tx.outputs:
                     if tx_output.script_pubkey == our_script:
-                        extra_text = _("Dust from BSV faucet")
+                        extra_text = _("Dust from RAD faucet")
                         wallet.set_label(tx.txid(), f"{TX_DESC_PREFIX}: {extra_text}")
                         break
 

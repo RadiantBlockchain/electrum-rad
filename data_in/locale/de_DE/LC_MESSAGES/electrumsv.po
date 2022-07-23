@@ -966,7 +966,7 @@ msgid "Donation for {}"
 msgstr ""
 
 #: electrumsv/gui/qt/coinsplitting_tab.py:210
-msgid "Dust from BSV faucet"
+msgid "Dust from RAD faucet"
 msgstr ""
 
 #: electrumsv/i18n.py:61
@@ -1540,7 +1540,7 @@ msgid "If you specify OP_RETURN text, you may leave the 'Pay to' field blank."
 msgstr ""
 
 #: electrumsv/base_wizard.py:271
-msgid "If you want the wallet to use BCH(ABC) or BSV addresses use m/44'/145'/0'"
+msgid "If you want the wallet to use BCH(ABC) or RAD addresses use m/44'/145'/0'"
 msgstr ""
 
 #: electrumsv/base_wizard.py:270

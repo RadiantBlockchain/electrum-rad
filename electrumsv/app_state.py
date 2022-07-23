@@ -59,7 +59,7 @@ class DefaultApp(object):
 
 class AppStateProxy(object):
     app = None
-    base_units = ['BSV', 'mBSV', 'bits', 'sats']    # large to small
+    base_units = ['RAD', 'mRAD', 'bits', 'sats']    # large to small
     decimal_points = [8, 5, 2, 0]
 
     # Avoid wider dependencies by not using a reference to the config type.

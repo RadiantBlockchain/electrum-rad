@@ -180,7 +180,7 @@ class PreferencesDialog(QDialog):
 
         unit_label = HelpLabel(_('Base unit') + ':', '\n'.join((
             _('Base unit of display in the application.'),
-            '1 BSV = 1,000 mBSV = 1,000,000 bits.',
+            '1 RAD = 1,000 mRAD = 1,000,000 bits.',
         )))
         unit_combo = QComboBox()
         unit_combo.addItems(app_state.base_units)

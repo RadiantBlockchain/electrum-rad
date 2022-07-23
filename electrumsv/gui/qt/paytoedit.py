@@ -82,7 +82,7 @@ class PayToEdit(ScanQRTextEdit):
 
     def _show_cashaddr_warning(self, address_text):
         '''
-        cash addresses are not in the future for BSV. Anyone who uses one should be warned that
+        cash addresses are not in the future for RAD. Anyone who uses one should be warned that
         they are being phased out, in order to encourage them to pre-emptively move on.
         '''
         address_text = self._parse_address_text(address_text)

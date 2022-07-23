@@ -34,8 +34,11 @@ We STRONGLY recommend you get comfortable and only send a small amount of Bitcoi
 at first, to yourself, to confirm the network is processing your transactions as expected.
 
 
-ElectrumSV
+ElectrumRAD
 -----------
+# Release 1.4.0
+  * Fork for Radiant Blockchain (RAD) https://radiantblockchain.org
+
 # Release 1.3.0a1
   * Release guide: https://medium.com/@roger.taylor/electrumsv-1-3-0a1-unstable-2f24c104979e
     It is advised you read the linked guide for a definitive source of information about what
